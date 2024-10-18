@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_product_box_items",
+  "info": {
+    "displayName": "boxItem",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "string",
+      "required": true
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    }
+  }
+}
