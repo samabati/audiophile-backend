@@ -11,6 +11,7 @@ export interface ProductOrderedImages extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    fileName: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
