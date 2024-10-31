@@ -1,4 +1,19 @@
-import type { Schema, Struct } from '@strapi/strapi';
+import type { Struct, Schema } from '@strapi/strapi';
+
+export interface ProductOrderedImages extends Struct.ComponentSchema {
+  collectionName: 'components_product_ordered_images';
+  info: {
+    displayName: 'orderedImages';
+    icon: 'file';
+    description: '';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    fileName: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
 
 export interface ProductBoxItem extends Struct.ComponentSchema {
   collectionName: 'components_product_box_items';
@@ -14,26 +29,11 @@ export interface ProductBoxItem extends Struct.ComponentSchema {
   };
 }
 
-export interface ProductOrderedImages extends Struct.ComponentSchema {
-  collectionName: 'components_product_ordered_images';
-  info: {
-    description: '';
-    displayName: 'orderedImages';
-    icon: 'file';
-  };
-  attributes: {
-    fileName: Schema.Attribute.String & Schema.Attribute.Required;
-    image: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'product.box-item': ProductBoxItem;
       'product.ordered-images': ProductOrderedImages;
+      'product.box-item': ProductBoxItem;
     }
   }
 }
